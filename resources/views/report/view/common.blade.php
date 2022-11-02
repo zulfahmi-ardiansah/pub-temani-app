@@ -118,6 +118,6 @@
         Foto
     </label>
     <div style="width: 300px; max-width: 100%;">
-        <img src="{{ asset($repHeader->he_image) }}" alt="foto-aduan" style="max-width: 100%" class="img-thumbnail">
+        <img src="{{ str_contains($repHeader->he_image, 'test_case_temani.jpg') ? asset('assets/img/icon/test_case_temani.jpg') : asset($repHeader->he_image) }}" alt="foto-aduan" style="max-width: 100%" class="img-thumbnail">
     </div>
 </div>
