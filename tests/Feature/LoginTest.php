@@ -9,11 +9,11 @@ use Tests\TestCase;
 class LoginTest extends TestCase
 {
     /**
-     * Checking Login Page is Rendered.
+     * Checking Login is Rendered.
      *
      * @return void
      */
-    public function test_login_page_is_rendered_properly()
+    public function test_login_is_rendered_properly()
     {
         $response = $this->get('/login');
 
@@ -106,7 +106,7 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function test_login_with_correct_credential() 
+    public function test_login_with_valid_credential() 
     {
         $response = $this->post('/login', [
             'us_email' => 'baskara@temani.id',
