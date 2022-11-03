@@ -22,7 +22,7 @@ class LoginTest extends TestCase
 
 
     /**
-     * Example Login without Email Input.
+     * Login without Email Input.
      *
      * @return void
      */
@@ -42,7 +42,7 @@ class LoginTest extends TestCase
 
 
     /**
-     * Example Login without Password Input.
+     * Login without Password Input.
      *
      * @return void
      */
@@ -62,7 +62,7 @@ class LoginTest extends TestCase
 
 
     /**
-     * Example Login without Email and Password Input.
+     * Login without Email and Password Input.
      *
      * @return void
      */
@@ -81,7 +81,7 @@ class LoginTest extends TestCase
 
 
     /**
-     * Example Login with Invalid Credential.
+     * Login with Invalid Credential.
      *
      * @return void
      */
@@ -102,7 +102,7 @@ class LoginTest extends TestCase
 
 
     /**
-     * Example Login with Valid Credential.
+     * Login with Valid Credential.
      *
      * @return void
      */

@@ -127,6 +127,15 @@ class ReportController extends Controller
             $data["title"]  =   "Membuat Aduan";
             try {
                 if ($request->get("submit-process")) {
+                    $request->validate([
+                        'he_title' => 'required',
+                        'he_description' => 'required',
+                        'he_place' => 'required',
+                        'he_image' => 'required',
+                        'he_time' => 'required',
+                        'he_date' => 'required',
+                    ]);
+
                     $repHeader  =   new RepHeader();
                     $repHeader->he_title    =   $request->get("he_title");
                     $repHeader->he_description    =   $request->get("he_description");

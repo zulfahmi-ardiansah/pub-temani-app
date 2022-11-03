@@ -8,7 +8,11 @@ use Tests\BrowserTestCase;
 
 class ReportTest extends BrowserTestCase
 {
-
+    /**
+     * Login with valid credential
+     *
+     * @return void
+     */
     public function test_login_with_valid_credential ()
     {
         $this->visit('/login');
@@ -26,6 +30,11 @@ class ReportTest extends BrowserTestCase
         $this->seePageIs('/home');
     }
 
+    /**
+     * Report creation rendered properly
+     *
+     * @return void
+     */
     public function test_report_creation_rendered_properly ()
     {
         $this->test_login_with_valid_credential();
@@ -33,6 +42,11 @@ class ReportTest extends BrowserTestCase
         $this->seePageIs('/report/create');
     }
     
+    /**
+     * Report creation rendered with valid data
+     *
+     * @return void
+     */
     public function test_report_creation_with_valid_data ()
     {
         $this->test_login_with_valid_credential();
@@ -62,6 +76,34 @@ class ReportTest extends BrowserTestCase
         $this->press('submit-process');
         $this->seePageIs('/home');
         $this->seeText($report_form_data['he_title']);
+    }
+
+    /**
+     * Report creation with invalid data
+     *
+     * @return void
+     */
+    public function test_report_creation_with_invalid_data ()
+    {
+        $this->test_login_with_valid_credential();
+
+        $this->visit('/report/create');
+
+        $report_form_data = [
+            'he_title' => '[Test-' . rand(111,999) . '-' . date('YmdHi') . '] Maraknya Begal Di Tangerang Selatan',
+            'he_place' => 'Tangerang Selatan',
+            'he_date' => '2022-11-02',
+            'he_place_lat' => '-6.281530',
+            'he_place_long' => '106.729871',
+            'he_category' => '1',
+        ];
+        
+        foreach ($report_form_data as $form_key => $form_value) {
+            $this->type($form_value, $form_key);
+        }
+        
+        $this->press('submit-process');
+        $this->seePageIs('/report/create');
     }
 
 }

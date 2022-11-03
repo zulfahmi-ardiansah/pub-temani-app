@@ -14,7 +14,7 @@ class Utility
             if ($file != false) {
                 $storageUrl =   "storage/files/" .  $customFolder . date("Y") . "-" . date("m") . "-" . date("d") . "/";
                 $newName    =  date("His") . "_" . ($customName ? $customName . '.' . $file->getClientOriginalExtension() : $file->getClientOriginalName());
-                $file->move($storageUrl, $newName);
+                $file->move(public_path($storageUrl), $newName);
                 $newName    = $storageUrl . $newName;
             }
             return $newName;
